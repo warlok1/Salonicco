@@ -34,7 +34,7 @@ Add the following line in the “cds” section of package.json.
 npm install @sap/cds-odata-v2-adapter-proxy -s 
 export NODE_ENV=production
 cds build/all --clean
-cf create-service hana hdi-shared training-db
+cf create-service hanatrial hdi-shared training-db
 cf push -f gen/db -k 300M
 cf push -f gen/srv --random-route -k 380M -m 1024M
 cds deploy --to hana
