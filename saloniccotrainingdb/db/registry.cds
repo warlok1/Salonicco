@@ -13,6 +13,8 @@ entity RegistryClients : managed {
     key IdClient : Integer;
         accounts : Composition of many RegistryAccounts
                        on accounts.IdAccount = $self;
+        Name     : String @title : 'Name';
+        Surname  : String @title : 'Surname';
 }
 
 entity RegistryAccounts : cuid, managed {

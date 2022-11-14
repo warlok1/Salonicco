@@ -11,15 +11,16 @@ using salonicco.training as types from './types';
 using salonicco.training as listvalues from './listvalues';
 
 entity MovmentsMaster : managed, cuid {
-    Account      : Association to registry.RegistryAccounts     @Core.Immutable  @title : 'ID Account';
-    VATRate      : Decimal(16, 2)              @(
+    Account        : Association to registry.RegistryAccounts     @Core.Immutable  @title : 'ID Account';
+    AccountingDate : Date                        @Core.Immutable  @title                  : 'Accounting Date';
+    VATRate        : Decimal(16, 2)              @(
         title    : 'VATRate',
         Measures : {Unit : UOM}
-    )                                                           @Core.Immutable;
-    UOM          : String(1) default '%'       @Core.Immutable  @Semantics.unitOfMeasure;
-    ImportoLordo : Decimal(16, 2)              @(
+    )                                                             @Core.Immutable;
+    UOM            : String(1) default '%'       @Core.Immutable  @Semantics.unitOfMeasure;
+    ImportoLordo   : Decimal(16, 2)              @(
         title    : 'Importo Lordo',
         Measures : {Unit : Valuta}
-    )                                                           @Core.Immutable;
-    Valuta       : types.Valuta default 'EUR'  @Core.Immutable  @Semantics.currencyCode;
+    )                                                             @Core.Immutable;
+    Valuta         : types.Valuta default 'EUR'  @Core.Immutable  @Semantics.currencyCode;
 }
